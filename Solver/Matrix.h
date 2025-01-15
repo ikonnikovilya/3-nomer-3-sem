@@ -10,105 +10,105 @@ namespace miit::algebra
 	template<typename T> class Matrix;
 
 	/*
-	* @brief Оператор "<<" для класса Matrix.
+	* @brief РћРїРµСЂР°С‚РѕСЂ "<<" РґР»СЏ РєР»Р°СЃСЃР° Matrix.
 	*/
 	template<typename T>
 	std::ostream& operator<<(std::ostream& os, const Matrix<T>& matrix);
 
 	/*
-	* @brief Класс матрица.
+	* @brief РљР»Р°СЃСЃ РјР°С‚СЂРёС†Р°.
 	*/
 	template<typename T>
 	class Matrix
 	{
 	private:
 		/*
-		* @brief Вектор векторов Матрица.
+		* @brief Р’РµРєС‚РѕСЂ РІРµРєС‚РѕСЂРѕРІ РњР°С‚СЂРёС†Р°.
 		*/
 		std::vector<std::vector<T>> matrix;
 
 		/*
-		* @brief Строки.
+		* @brief РЎС‚СЂРѕРєРё.
 		*/
 		size_t rows;
 
 		/*
-		* @brief Столбцы.
+		* @brief РЎС‚РѕР»Р±С†С‹.
 		*/
 		size_t columns;
 	public:
 		/*
-		* @brief Консртуктор.
+		* @brief РљРѕРЅСЃСЂС‚СѓРєС‚РѕСЂ.
 		*/
 		Matrix() = default;
 
 		/*
-		* @brief Конструктор.
-		* @param Rows количество строк.
-		* @param Columns количество столбцов.
+		* @brief РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
+		* @param Rows РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє.
+		* @param Columns РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ.
 		*/
 		Matrix(size_t Rows, size_t Columns);
 
 		/*
-		* @brief Консртуктор копирования.
+		* @brief РљРѕРЅСЃСЂС‚СѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ.
 		*/
 		Matrix(const Matrix& other) = default;
 
 		/*
-		* @brief Консртуктор копирования перемещением.
+		* @brief РљРѕРЅСЃСЂС‚СѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРµСЂРµРјРµС‰РµРЅРёРµРј.
 		*/
 		Matrix(Matrix&& other) noexcept = default;
 
 		/*
-		* @brief Оператор копирования.
+		* @brief РћРїРµСЂР°С‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ.
 		*/
 		Matrix& operator = (const Matrix& other) = default;
 		/*
-		* @brief Оператор копирования перемещением.
+		* @brief РћРїРµСЂР°С‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ РїРµСЂРµРјРµС‰РµРЅРёРµРј.
 		*/
 		Matrix& operator = (Matrix&& other) noexcept = default;
 
 		/*
-		* @brief Оператор доступа к строке.
-		* @param index индекс строки.
-		* @return Ссылку на вектор строки матрицы.
+		* @brief РћРїРµСЂР°С‚РѕСЂ РґРѕСЃС‚СѓРїР° Рє СЃС‚СЂРѕРєРµ.
+		* @param index РёРЅРґРµРєСЃ СЃС‚СЂРѕРєРё.
+		* @return РЎСЃС‹Р»РєСѓ РЅР° РІРµРєС‚РѕСЂ СЃС‚СЂРѕРєРё РјР°С‚СЂРёС†С‹.
 		*/
 		std::vector<T>& operator [](size_t index);
 
 		/*
-		* @brief Оператор доступа к строке.
-		* @param index индекс строки.
-		* @return Ссылку на вектор строки матрицы.
+		* @brief РћРїРµСЂР°С‚РѕСЂ РґРѕСЃС‚СѓРїР° Рє СЃС‚СЂРѕРєРµ.
+		* @param index РёРЅРґРµРєСЃ СЃС‚СЂРѕРєРё.
+		* @return РЎСЃС‹Р»РєСѓ РЅР° РІРµРєС‚РѕСЂ СЃС‚СЂРѕРєРё РјР°С‚СЂРёС†С‹.
 		*/
 		const std::vector<T>& operator [](size_t index) const;
 
 		/*
-		* @brief Метод заполения матрицы значениями.
-		* @param generator генератор.
+		* @brief РњРµС‚РѕРґ Р·Р°РїРѕР»РµРЅРёСЏ РјР°С‚СЂРёС†С‹ Р·РЅР°С‡РµРЅРёСЏРјРё.
+		* @param generator РіРµРЅРµСЂР°С‚РѕСЂ.
 		*/
 		void Fill(Generator& generator);
 
 		/*
-		* @brief Метод получения колличества строк.
-		* @return Колличество строк матрицы.
+		* @brief РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РєРѕР»Р»РёС‡РµСЃС‚РІР° СЃС‚СЂРѕРє.
+		* @return РљРѕР»Р»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РјР°С‚СЂРёС†С‹.
 		*/
 		size_t GetRows();
 
 		/*
-		* @brief Метод получения колличества столбцов.
-		* @return Колличество столбцов матрицы.
+		* @brief РњРµС‚РѕРґ РїРѕР»СѓС‡РµРЅРёСЏ РєРѕР»Р»РёС‡РµСЃС‚РІР° СЃС‚РѕР»Р±С†РѕРІ.
+		* @return РљРѕР»Р»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ РјР°С‚СЂРёС†С‹.
 		*/
 		size_t GetColumns();
 
 		/*
-		* @brief Метод сериализации в строку ToString().
-		* @return Возвращает строковое представление матрицы.
+		* @brief РњРµС‚РѕРґ СЃРµСЂРёР°Р»РёР·Р°С†РёРё РІ СЃС‚СЂРѕРєСѓ ToString().
+		* @return Р’РѕР·РІСЂР°С‰Р°РµС‚ СЃС‚СЂРѕРєРѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РјР°С‚СЂРёС†С‹.
 		*/
 		std::string ToString() const;
 
 		/*
-		* @brief Метод удаления строки матрицы.
-		* @param delete_row строка, которую нужно удалить.
+		* @brief РњРµС‚РѕРґ СѓРґР°Р»РµРЅРёСЏ СЃС‚СЂРѕРєРё РјР°С‚СЂРёС†С‹.
+		* @param delete_row СЃС‚СЂРѕРєР°, РєРѕС‚РѕСЂСѓСЋ РЅСѓР¶РЅРѕ СѓРґР°Р»РёС‚СЊ.
 		*/
 		void DeleteRow(size_t delete_row);
 	};
@@ -124,7 +124,7 @@ inline std::vector<T>& miit::algebra::Matrix<T>::operator[](size_t index)
 {
 	if (index >= rows)
 	{
-		throw std::out_of_range("Некорректный индекс");
+		throw std::out_of_range("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ");
 	}
 	return matrix[index];
 }
@@ -158,7 +158,7 @@ inline const std::vector<T>& miit::algebra::Matrix<T>::operator[](size_t index) 
 {
 	if (index >= rows)
 	{
-		throw std::out_of_range("Некорректный индекс");
+		throw std::out_of_range("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РёРЅРґРµРєСЃ");
 	}
 	return Matrix[index];
 }
@@ -183,7 +183,7 @@ inline void miit::algebra::Matrix<T>::DeleteRow(size_t delete_row)
 {
 	if (delete_row >= rows)
 	{
-		throw std::out_of_range("Выход за границы допустимых значений");
+		throw std::out_of_range("Р’С‹С…РѕРґ Р·Р° РіСЂР°РЅРёС†С‹ РґРѕРїСѓСЃС‚РёРјС‹С… Р·РЅР°С‡РµРЅРёР№");
 	}
 	matrix.erase(matrix.begin() + delete_row);
 	--rows;

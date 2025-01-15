@@ -6,7 +6,7 @@
 namespace miit::algebra
 {
     /*
-    *@brief класс генератор по потоку ввода
+    *@brief РєР»Р°СЃСЃ РіРµРЅРµСЂР°С‚РѕСЂ РїРѕ РїРѕС‚РѕРєСѓ РІРІРѕРґР°
     */
     class IStreamGenerator final : public Generator
     {
@@ -15,14 +15,14 @@ namespace miit::algebra
 
     public:
         /*
-        *@brief конструктор istream генератора
-        *@param in - поток ввода
+        *@brief РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ istream РіРµРЅРµСЂР°С‚РѕСЂР°
+        *@param in - РїРѕС‚РѕРє РІРІРѕРґР°
         */
         explicit IStreamGenerator(std::istream& in = std::cin);
 
         /*
-        *@brief метод генерации значений вручную
-        *@return введеное пользователем значение
+        *@brief РјРµС‚РѕРґ РіРµРЅРµСЂР°С†РёРё Р·РЅР°С‡РµРЅРёР№ РІСЂСѓС‡РЅСѓСЋ
+        *@return РІРІРµРґРµРЅРѕРµ РїРѕР»СЊР·РѕРІР°С‚РµР»РµРј Р·РЅР°С‡РµРЅРёРµ
         */
         int generate() override;
     };
